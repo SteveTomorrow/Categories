@@ -110,6 +110,7 @@
                 </button>
             </div>
             <div class="modal-body">
+                <p>ID: <span id="detail_id"></span></p>
                 <p>Name: <span id="detail_name"></span></p>
                 <p>Parent category: <span id="detail_parent"></span></p>
             </div>

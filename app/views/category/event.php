@@ -16,22 +16,24 @@
         });
     });
 
-    // Hiển thị chi tiết danh mục khi click vào tên danh mục
     $(document).ready(function() {
         $('.category-node').on('click', function(event) {
             if ($(event.target).is('.btn, .btn i')) {
                 return;
             }
 
+            var id = $(this).find('.btn-edit').data('id');
             var name = $(this).find('.btn-edit').data('name');
             var parent = $(this).find('.btn-edit').data('parent');
 
+            $('#detail_id').text(id);
             $('#detail_name').text(name);
             $('#detail_parent').text(parent);
 
             $('#detailCategoryModal').modal('show');
         });
     });
+
 
     $('.btn-edit').on('click', function () {
         var id = $(this).data('id');

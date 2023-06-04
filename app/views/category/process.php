@@ -1,7 +1,7 @@
 <?php
 
 // Số danh mục trên mỗi trang
-$categoriesPerPage = 11;
+$categoriesPerPage = 10;
 
 // Trang hiện tại
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -21,7 +21,7 @@ $totalPages = ceil($categoryCount / $categoriesPerPage);
 // Hàm xây dựng hiển thị danh mục
 function buildCategoryTreeWithPagination($categories, $startIndex, $endIndex, $parent = 0, $level = 0, $searchKeyword = '')
 {
-    $count = 1; // Biến đếm số thứ tự
+    $count = 0; // Biến đếm số thứ tự
     $isSearching = ($searchKeyword !== ''); // Xác định trạng thái tìm kiếm
     if ($isSearching) {
         foreach ($categories as $category) {
@@ -47,7 +47,7 @@ function buildCategory($startIndex, $endIndex, $categories, $category, $level = 
         $tab = str_repeat('&nbsp;', 6 * $level);
 
         echo '<tr class="category-node">';
-        echo '<td>' . $count . '</td>';
+        echo '<td>' . $count+1 . '</td>';
         echo '<td>' .$tab. ($level > 1 ? '└─── ' : '') . $category['name'] . ($category['parent_id'] != null ? '-' : '') . $category['parent_id'] . '</td>';
         echo '<td>';
         echo '<button class="btn btn-edit" data-id="' . $category['id'] . '" data-name="' . $category['name'] . '" data-parent="' . $category['parent_id'] . '"><i class="fa fa-pencil"></i></button>';

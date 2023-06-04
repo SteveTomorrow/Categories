@@ -10,7 +10,7 @@ $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
 
 // Tính toán vị trí bắt đầu và kết thúc của danh mục trên trang hiện tại
 $startIndex = ($page - 1) * $categoriesPerPage;
-$endIndex = $startIndex + $categoriesPerPage - 1;
+$endIndex = $startIndex + ($categoriesPerPage - 1);
 
 // Số lượng danh mục trong danh sách
 $categoryCount = count($categories);
@@ -98,7 +98,7 @@ if ($action === 'search' && $keyword !== '') {
             $categoryCount += countDescendants($categories, $category, $keyword);
         }
     }
-    $totalPages = ceil($categoryCount / $categoriesPerPage);
+    $totalPages = ceil($categoryCount - 1 / $categoriesPerPage);
     echo '<div class="result-count">Found ' . $categoryCount . ' categories</div>';
     // Sử dụng giá trị categoryCount và totalPages cho xử lý tiếp theo
 } else {

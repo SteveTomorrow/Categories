@@ -59,7 +59,8 @@
                     </div>
                     <div class="form-group">
                         <label for="edit_parent_id" class="form-label">Parent category:</label>
-                        <select class="form-control" id="edit_parent_id" name="parent_id">
+                        <select class="form-control" id="edit_parent_id" name="parent_id" data-selected-id="">
+                            <option value="">None</option>
                         </select>
                     </div>
                 </div>
@@ -71,6 +72,7 @@
         </div>
     </div>
 </div>
+
 
 
 <!-- Modal sao chép danh mục -->

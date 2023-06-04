@@ -98,7 +98,7 @@ if ($action === 'search' && $keyword !== '') {
             $categoryCount += countDescendants($categories, $category, $keyword);
         }
     }
-    $totalPages = ceil($categoryCount - 1 / $categoriesPerPage);
+    $totalPages = ceil($categoryCount / $categoriesPerPage);
     echo '<div class="result-count">Found ' . $categoryCount . ' categories</div>';
     // Sử dụng giá trị categoryCount và totalPages cho xử lý tiếp theo
 } else {

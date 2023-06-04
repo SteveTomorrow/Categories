@@ -21,13 +21,14 @@ Bước 2: Cấu hình cơ sở dữ liệu PostgreSQL
 2. Tạo một cơ sở dữ liệu mới với tên "categories".
 3. Trong cơ sở dữ liệu "categories", tạo một bảng mới với cấu trúc sau:
 
-   ```sql
-   CREATE TABLE categories (
-     id serial PRIMARY KEY,
-     name varchar(50) NOT NULL,
-     parent_id integer
-   );
-   ```
+```sql
+CREATE TABLE categories (
+    id serial PRIMARY KEY,
+    name varchar(50) NOT NULL,
+    parent_id integer,
+    CONSTRAINT check_parent_not_self CHECK (parent_id <> id)
+);
+```
 
 ## Sử dụng
 
